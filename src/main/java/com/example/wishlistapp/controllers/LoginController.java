@@ -26,12 +26,7 @@ public class LoginController {
     @PostMapping("/login")
     public String processLoginForm(@ModelAttribute("user") User user, Model model) {
         User foundUser = userService.getUserByEmail(user.getEmail());
-        if (foundUser != null) {
-            model.addAttribute("user", foundUser);
-            return "user";
-        } else {
-            model.addAttribute("error", "User not found");
-            return "login";
-        }
+        model.addAttribute("user", foundUser);
+        return "user";
     }
 }
