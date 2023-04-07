@@ -56,6 +56,26 @@ public class UserRepository implements IUserRepository {
         return null;
     }
 
+    public User getUserByEmail(String email) {
+        try (Connection con = DriverManager.getConnection(url, username, pwd)) {
+            String SQL = "SELECT * FROM user WHERE email = ?";
+            PreparedStatement pstmt = con.prepareStatement(SQL);
+            pstmt.setString(1, email);
+            ResultSet rs = pstmt.executeQuery();
+
+            if (rs.next()) {
+                int id = rs.getInt(1);
+                String first_name = rs.getString(2);
+                String last_name = rs.getString(3);
+                return new User(id, first_name, last_name, email);
+            }
+
+        } catch (SQLException e) {
+            throw new RuntimeException();
+        }
+        return null;
+    }
+
     public void createUser(User user) {
         try (Connection con = DriverManager.getConnection(url, username, pwd)) {
             String SQL = "INSERT INTO user (first_name, last_name, email) VALUES(?,?,?)";
