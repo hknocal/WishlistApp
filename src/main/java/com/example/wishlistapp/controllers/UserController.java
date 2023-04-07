@@ -19,6 +19,10 @@ public class UserController {
     }
 
     @GetMapping("/")
+    public String home() {
+        return "home";
+    }
+    @GetMapping("/user-list")
     public String userList(Model model) {
         List<User> userList = userService.getUsers();
         model.addAttribute("users", userList);
