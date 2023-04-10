@@ -50,7 +50,7 @@ public class UserController {
     }
 
     @PostMapping("/edit-user")
-    public String saveUserEdit (@ModelAttribute User user, Model model) {
+    public String saveUserEdit(@ModelAttribute User user, Model model) {
         model.addAttribute("user", user);
         userService.editUser(user);
         return "edit-user-success";
