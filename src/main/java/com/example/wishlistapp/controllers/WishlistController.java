@@ -1,5 +1,6 @@
 package com.example.wishlistapp.controllers;
 
+import com.example.wishlistapp.models.Item;
 import com.example.wishlistapp.models.Wishlist;
 import com.example.wishlistapp.services.WishlistService;
 import org.springframework.stereotype.Controller;
@@ -24,6 +25,5 @@ public class WishlistController {
         model.addAttribute("wishlist", wishlists);
         return "wishlist";
     }
-
 
 }
