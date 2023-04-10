@@ -40,4 +40,21 @@ public class ItemRepository implements IItemRepository {
 
         return items;
     }
+
+    public void addItem(Item item) {
+        try (Connection con = DriverManager.getConnection(url, username, pwd)) {
+
+            String SQL = "INSERT INTO item (item_name, item_link, item_price, item_quantity, wishlist_id) VALUES (?,?,?,?,?)";
+            PreparedStatement pstmt = con.prepareStatement(SQL);
+            pstmt.setString(1, item.getItem_name());
+            pstmt.setString(2, item.getItem_link());
+            pstmt.setInt(3, item.getItem_price());
+            pstmt.setInt(4, item.getItem_quantity());
+            pstmt.setInt(5, item.getId());
+            pstmt.executeUpdate();
+
+        } catch (SQLException e) {
+            throw new RuntimeException();
+        }
+    }
 }

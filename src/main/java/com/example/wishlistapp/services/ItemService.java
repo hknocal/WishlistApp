@@ -16,4 +16,7 @@ public class ItemService {
     public List<Item> getItemsByWishlistID(int id) {
         return repository.getItemsByWishlistID(id);
     }
+    public void addItem(Item item) {
+        repository.addItem(item);
+    }
 }

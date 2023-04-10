@@ -7,4 +7,6 @@ import java.util.List;
 public interface IItemRepository {
 
     List<Item> getItemsByWishlistID(int id);
+
+    void addItem(Item item);
 }

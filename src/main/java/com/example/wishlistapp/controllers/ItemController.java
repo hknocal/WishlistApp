@@ -5,9 +5,12 @@ import com.example.wishlistapp.services.ItemService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
+
 @Controller
 public class ItemController {
 
@@ -18,9 +21,22 @@ public class ItemController {
     }
 
     @GetMapping("/wishlist/items")
-    public String getItemsByWishlistID (@RequestParam("id") int id, Model model) {
+    public String getItemsByWishlistID(@RequestParam("id") int id, Model model) {
         List<Item> items = itemService.getItemsByWishlistID(id);
         model.addAttribute("item", items);
         return "items";
+    }
+
+    @GetMapping("/add-item")
+    public String addItem(Model model) {
+        model.addAttribute("item", new Item());
+        return "add-item";
+    }
+
+    @PostMapping("/add-item")
+    public String saveItem(@ModelAttribute Item item, Model model) {
+        model.addAttribute("item", item);
+        itemService.addItem(item);
+        return "add-item-success";
     }
 }
