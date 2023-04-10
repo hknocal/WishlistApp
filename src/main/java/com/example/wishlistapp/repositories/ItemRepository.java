@@ -1,14 +1,13 @@
 package com.example.wishlistapp.repositories;
 
-import com.example.wishlistapp.models.Wishlist;
+import com.example.wishlistapp.models.Item;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Repository;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
-
 @Repository
-public class WishlistRepository implements IWishlistRepository {
+public class ItemRepository implements IItemRepository {
 
     @Value("${spring.datasource.url}")
     String url;
@@ -17,27 +16,28 @@ public class WishlistRepository implements IWishlistRepository {
     @Value("${spring.datasource.password}")
     String pwd;
 
-    public List<Wishlist> getWishlistByUserID(int id) {
-
-        List<Wishlist> wishlists = new ArrayList<>();
+    public List<Item> getItemsByWishlistID(int id) {
+        List<Item> items = new ArrayList<>();
 
         try (Connection con = DriverManager.getConnection(url, username, pwd)) {
 
-            String SQL = "SELECT * FROM wishlist WHERE user_id = ?";
+            String SQL = "SELECT * FROM item WHERE wishlist_id = ?";
             PreparedStatement pstmt = con.prepareStatement(SQL);
             pstmt.setInt(1, id);
             ResultSet rs = pstmt.executeQuery();
 
             while (rs.next()) {
-                int wishlist_id = rs.getInt(1);
-                String wishlist_title = rs.getString(2);
-                wishlists.add(new Wishlist(wishlist_id, wishlist_title));
+                int item_id = rs.getInt(1);
+                String item_name = rs.getString(2);
+                String item_link = rs.getString(3);
+                int item_price = rs.getInt(4);
+                int item_quantity = rs.getInt(5);
+                items.add(new Item(item_id, item_name, item_link, item_price, item_quantity));
             }
-
         } catch (SQLException e) {
             throw new RuntimeException();
         }
-        return wishlists;
-    }
 
+        return items;
+    }
 }

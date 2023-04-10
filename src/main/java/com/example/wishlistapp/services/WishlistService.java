@@ -1,5 +1,6 @@
 package com.example.wishlistapp.services;
 
+import com.example.wishlistapp.models.Item;
 import com.example.wishlistapp.models.Wishlist;
 import com.example.wishlistapp.repositories.WishlistRepository;
 import org.springframework.stereotype.Service;
@@ -17,4 +18,5 @@ public class WishlistService {
     public List<Wishlist> getWishlistByUserID(int id) {
         return repository.getWishlistByUserID(id);
     }
+
 }
