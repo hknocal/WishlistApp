@@ -28,14 +28,16 @@ public class ItemController {
     }
 
     @GetMapping("/add-item")
-    public String addItem(Model model) {
+    public String addItem(@RequestParam("id") int id, Model model) {
         model.addAttribute("item", new Item());
+        model.addAttribute("wishlist_id", id);
         return "add-item";
     }
 
     @PostMapping("/add-item")
-    public String saveItem(@ModelAttribute Item item, Model model) {
+    public String saveItem(@ModelAttribute Item item, @RequestParam("id") int id, Model model) {
         model.addAttribute("item", item);
+        item.setWishlist_id(id);
         itemService.addItem(item);
         return "add-item-success";
     }

@@ -6,13 +6,15 @@ public class Item {
     private String item_link;
     private int item_price;
     private int item_quantity;
+    private int wishlist_id;
 
-    public Item(int id, String item_name, String item_link, int item_price, int item_quantity) {
+    public Item(int id, String item_name, String item_link, int item_price, int item_quantity, int wishlist_id) {
         this.id = id;
         this.item_name = item_name;
         this.item_link = item_link;
         this.item_price = item_price;
         this.item_quantity = item_quantity;
+        this.wishlist_id = wishlist_id;
     }
 
     public Item() {
@@ -58,6 +60,14 @@ public class Item {
         this.item_quantity = item_quantity;
     }
 
+    public int getWishlist_id() {
+        return wishlist_id;
+    }
+
+    public void setWishlist_id(int wishlist_id) {
+        this.wishlist_id = wishlist_id;
+    }
+
     @Override
     public String toString() {
         return "Item{" +
@@ -66,6 +76,7 @@ public class Item {
                 ", item_link='" + item_link + '\'' +
                 ", item_price=" + item_price +
                 ", item_quantity=" + item_quantity +
+                ", wishlist_id=" + wishlist_id +
                 '}';
     }
 }

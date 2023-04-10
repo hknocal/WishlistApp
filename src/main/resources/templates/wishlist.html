@@ -39,9 +39,10 @@
             <td th:text="${wishlist.getId()}"></td>
             <td th:text="${wishlist.getWishlist_title()}"></td>
             <td>
-                <a href="#">Edit</a>
-                <a href="#">Delete</a>
-                <a th:href="@{'/wishlist/items?id=' + ${wishlist.getId()}}">Items</a>
+                <a href="#" class="btn btn-warning">Edit</a>
+                <a href="#" class="btn btn-danger">Delete</a>
+                <a th:href="@{'/wishlist/items?id=' + ${wishlist.getId()}}" class="btn btn-primary">Items</a>
+                <a th:href="@{'/add-item?id=' + ${wishlist.getId()}}" class="btn btn-success">Add item</a>
             </td>
         </tr>
         </tbody>
