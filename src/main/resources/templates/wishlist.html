@@ -41,9 +41,7 @@
             <td>
                 <a href="#" class="btn btn-warning">Edit</a>
                 <a href="#" class="btn btn-danger">Delete</a>
-                <a th:href="@{'/wishlist/items?id=' + ${wishlist.getId()}}" class="btn btn-primary">Items</a>
-                <a th:href="@{'/add-item?id=' + ${wishlist.getId()}}" class="btn btn-success">Add item</a>
-            </td>
+                <a th:href="@{'/wishlist/items?id=' + ${wishlist.getId()}}" class="btn btn-primary">Items</a></td>
         </tr>
         </tbody>
     </table>

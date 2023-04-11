@@ -24,6 +24,7 @@ public class ItemController {
     public String getItemsByWishlistID(@RequestParam("id") int id, Model model) {
         List<Item> items = itemService.getItemsByWishlistID(id);
         model.addAttribute("item", items);
+        model.addAttribute("wishlist_id", id);
         return "items";
     }
 
