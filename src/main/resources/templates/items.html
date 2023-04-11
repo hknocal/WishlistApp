@@ -45,8 +45,8 @@
             <td th:text="${item.getItem_price()}"></td>
             <td th:text="${item.getItem_quantity()}"></td>
             <td>
-                <a href="#" class="btn btn-warning">Edit</a>
-                <a href="#" class="btn btn-danger">Delete</a>
+                <a th:href="@{'/edit-item?id=' + ${item.getId()}}" class="btn btn-warning">Edit</a>
+                <a th:href="@{'/delete-item?id=' + ${item.getId()} + '&wishlist_id=' + ${wishlist_id}}" class="btn btn-danger">Delete</a>
             </td>
         </tbody>
 

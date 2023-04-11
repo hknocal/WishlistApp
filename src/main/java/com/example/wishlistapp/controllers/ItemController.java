@@ -42,4 +42,23 @@ public class ItemController {
         itemService.addItem(item);
         return "add-item-success";
     }
+
+    @GetMapping("/edit-item")
+    public String editItem(@RequestParam("id") int id, Model model) {
+        Item item = itemService.getItemsByID(id);
+        model.addAttribute("item", item);
+        return "edit-item";
+    }
+
+    @PostMapping("/edit-item")
+    public String saveItemEdit(@ModelAttribute Item item, Model model) {
+        model.addAttribute("item", item);
+        itemService.editItem(item);
+        return "edit-item-success";
+    }
+    @GetMapping("/delete-item")
+    public String deleteItem(@RequestParam("id") int id, @RequestParam("wishlist_id") int wishlist_id) {
+        itemService.deleteItem(id);
+        return "redirect:/wishlist/items?id=" + wishlist_id;
+    }
 }
