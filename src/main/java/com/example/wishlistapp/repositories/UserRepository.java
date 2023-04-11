@@ -107,8 +107,18 @@ public class UserRepository implements IUserRepository {
 
     public void deleteUser(int id) {
         try (Connection con = DriverManager.getConnection(url, username, pwd)) {
-            String SQL = "DELETE FROM user WHERE id = ?";
+            String SQL = "DELETE FROM item WHERE wishlist_id IN (SELECT id FROM wishlist WHERE user_id = ?)";
             PreparedStatement pstmt = con.prepareStatement(SQL);
+            pstmt.setInt(1, id);
+            pstmt.executeUpdate();
+
+            SQL = "DELETE FROM wishlist WHERE user_id = ?";
+            pstmt = con.prepareStatement(SQL);
+            pstmt.setInt(1, id);
+            pstmt.executeUpdate();
+
+            SQL = "DELETE FROM user WHERE id = ?";
+            pstmt = con.prepareStatement(SQL);
             pstmt.setInt(1, id);
             pstmt.executeUpdate();
         } catch (SQLException e) {
