@@ -18,9 +18,7 @@ public class ItemRepository implements IItemRepository {
 
     public List<Item> getItemsByWishlistID(int id) {
         List<Item> items = new ArrayList<>();
-
         try (Connection con = DriverManager.getConnection(url, username, pwd)) {
-
             String SQL = "SELECT * FROM item WHERE wishlist_id = ?";
             PreparedStatement pstmt = con.prepareStatement(SQL);
             pstmt.setInt(1, id);
@@ -32,12 +30,76 @@ public class ItemRepository implements IItemRepository {
                 String item_link = rs.getString(3);
                 int item_price = rs.getInt(4);
                 int item_quantity = rs.getInt(5);
-                items.add(new Item(item_id, item_name, item_link, item_price, item_quantity));
+                int wishlist_id = rs.getInt(6);
+                items.add(new Item(item_id, item_name, item_link, item_price, item_quantity, wishlist_id));
             }
         } catch (SQLException e) {
             throw new RuntimeException();
         }
-
         return items;
+    }
+
+    public Item getItemById(int id) {
+        try (Connection con = DriverManager.getConnection(url, username, pwd)) {
+            String SQL = "SELECT * FROM item WHERE id = ?";
+            PreparedStatement pstmt = con.prepareStatement(SQL);
+            pstmt.setInt(1, id);
+            ResultSet rs = pstmt.executeQuery();
+
+            if (rs.next()) {
+                String item_name = rs.getString(2);
+                String item_link = rs.getString(3);
+                int item_price = rs.getInt(4);
+                int item_quantity = rs.getInt(5);
+                int wishlist_id = rs.getInt(6);
+                return new Item(id, item_name, item_link, item_price, item_quantity, wishlist_id);
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException();
+        }
+        return null;
+    }
+
+    public void addItem(Item item) {
+        try (Connection con = DriverManager.getConnection(url, username, pwd)) {
+            String SQL = "INSERT INTO item (item_name, item_link, item_price, item_quantity, wishlist_id) VALUES (?,?,?,?,?)";
+            PreparedStatement pstmt = con.prepareStatement(SQL);
+            pstmt.setString( 1, item.getItem_name());
+            pstmt.setString(2, item.getItem_link());
+            pstmt.setInt(3, item.getItem_price());
+            pstmt.setInt(4, item.getItem_quantity());
+            pstmt.setInt(5, item.getWishlist_id());
+            pstmt.executeUpdate();
+        } catch (SQLException e) {
+            throw new RuntimeException();
+        }
+    }
+
+    public void editItem(Item item) {
+        try (Connection con = DriverManager.getConnection(url, username, pwd)) {
+            String SQL = "UPDATE item SET item_name = ?, item_link = ?, item_price = ?, item_quantity = ? WHERE id = ?";
+            PreparedStatement pstmt = con.prepareStatement(SQL);
+
+            pstmt.setString(1, item.getItem_name());
+            pstmt.setString(2, item.getItem_link());
+            pstmt.setInt(3, item.getItem_price());
+            pstmt.setInt(4, item.getItem_quantity());
+            pstmt.setInt(5, item.getId());
+            pstmt.executeUpdate();
+
+        } catch (SQLException e) {
+            throw new RuntimeException();
+        }
+    }
+
+    public void deleteItem(int id) {
+        try (Connection con = DriverManager.getConnection(url, username, pwd)) {
+            String SQL = "DELETE FROM item WHERE id = ?";
+            PreparedStatement pstmt = con.prepareStatement(SQL);
+            pstmt.setInt(1, id);
+            pstmt.executeUpdate();
+        } catch (SQLException e) {
+            throw new RuntimeException();
+        }
     }
 }

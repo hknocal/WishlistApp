@@ -44,9 +44,9 @@
     <td th:text="${user.last_name}"></td>
     <td th:text="${user.email}"></td>
     <td>
-      <a th:href="@{'/edit-user?id=' + ${user.getId()}}">Edit</a>
-      <a th:href="@{'/delete-user?id=' + ${user.getId()}}">Delete</a>
-      <a th:href="@{'/wishlist?id=' + ${user.getId()}}">Wishlist</a>
+      <a th:href="@{'/edit-user?id=' + ${user.getId()}}" class="btn btn-warning">Edit</a>
+      <a th:href="@{'/delete-user?id=' + ${user.getId()}}" class="btn btn-danger">Delete</a>
+      <a th:href="@{'/wishlist?id=' + ${user.getId()}}" class="btn btn-primary">Wishlist</a>
     </td>
   </tr>
   </tbody>

@@ -1,5 +1,6 @@
 package com.example.wishlistapp.repositories;
 
+import com.example.wishlistapp.models.Item;
 import com.example.wishlistapp.models.Wishlist;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Repository;
@@ -39,5 +40,4 @@ public class WishlistRepository implements IWishlistRepository {
         }
         return wishlists;
     }
-
 }

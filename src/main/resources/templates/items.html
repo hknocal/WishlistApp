@@ -44,12 +44,14 @@
             <td th:text="${item.getItem_link()}"></td>
             <td th:text="${item.getItem_price()}"></td>
             <td th:text="${item.getItem_quantity()}"></td>
-
             <td>
-                <a href="#">Edit</a>
-                <a href="#">Delete</a>
+                <a th:href="@{'/edit-item?id=' + ${item.getId()}}" class="btn btn-warning">Edit</a>
+                <a th:href="@{'/delete-item?id=' + ${item.getId()} + '&wishlist_id=' + ${wishlist_id}}" class="btn btn-danger">Delete</a>
+            </td>
         </tbody>
+
     </table>
+    <a th:href="@{'/add-item?id=' + ${wishlist_id}}" class="btn btn-success">Add item</a>
 </div>
 </body>
 </html>
