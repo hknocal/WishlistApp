@@ -29,7 +29,6 @@
 
     <table class="table">
         <thead>
-        <th>ID</th>
         <th>Item name</th>
         <th>Item link</th>
         <th>Item price</th>
@@ -39,7 +38,6 @@
 
         <tbody>
         <tr th:each="item: ${item}">
-            <td th:text="${item.getId()}"></td>
             <td th:text="${item.getItem_name()}"></td>
             <td th:text="${item.getItem_link()}"></td>
             <td th:text="${item.getItem_price()}"></td>

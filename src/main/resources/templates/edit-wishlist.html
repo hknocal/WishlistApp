@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit wishlist</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+</head>
+<body>
+<div class="container">
+    <ul class="nav nav-tabs">
+        <li class="nav-item">
+            <a class="nav-link" aria-current="page" th:href="@{'/'}">Home</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" aria-current="page" th:href="@{'/login'}">Login</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" th:href="@{'/create-user'}">Create user</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" aria-current="page" th:href="@{'/user-list'}">Admin</a>
+        </li>
+    </ul>
+
+    <br>
+
+    <h3>Edit wishlist</h3>
+
+    <form method="post" th:object="${wishlist}" action="/edit-wishlist">
+
+        <div class="mb-3">
+            <input type="hidden" id="wishlist_id" th:field="*{id}"/>
+
+            <label for="wishlist_title" class="form-label">Wishlist Title:</label>
+            <input type="text" id="wishlist_title" class="form-control" th:field="*{wishlist_title}" required/>
+        </div>
+        <input type="submit" class="btn btn-primary" value="Submit">
+    </form>
+
+</div>
+</body>
+</html>
