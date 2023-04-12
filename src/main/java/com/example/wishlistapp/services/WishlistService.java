@@ -19,4 +19,7 @@ public class WishlistService {
         return repository.getWishlistByUserID(id);
     }
 
+    public void addWishlist(Wishlist wishlist) {
+        repository.addWishlist(wishlist);
+    }
 }

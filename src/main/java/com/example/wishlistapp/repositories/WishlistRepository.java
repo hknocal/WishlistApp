@@ -1,6 +1,5 @@
 package com.example.wishlistapp.repositories;
 
-import com.example.wishlistapp.models.Item;
 import com.example.wishlistapp.models.Wishlist;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Repository;
@@ -30,14 +29,29 @@ public class WishlistRepository implements IWishlistRepository {
             ResultSet rs = pstmt.executeQuery();
 
             while (rs.next()) {
-                int wishlist_id = rs.getInt(1);
                 String wishlist_title = rs.getString(2);
-                wishlists.add(new Wishlist(wishlist_id, wishlist_title));
+                int user_id = rs.getInt(3);
+                wishlists.add(new Wishlist(id, wishlist_title, user_id));
             }
 
         } catch (SQLException e) {
             throw new RuntimeException();
         }
         return wishlists;
+    }
+
+    public void addWishlist(Wishlist wishlist) {
+
+        try (Connection con = DriverManager.getConnection(url, username, pwd)) {
+
+            String SQL = "INSERT INTO wishlist (wishlist_title, user_id) VALUES (?,?)";
+            PreparedStatement pstmt = con.prepareStatement(SQL);
+            pstmt.setString(1, wishlist.getWishlist_title());
+            pstmt.setInt(2, wishlist.getId());
+            pstmt.executeUpdate();
+
+        } catch (SQLException e) {
+            throw new RuntimeException();
+        }
     }
 }
