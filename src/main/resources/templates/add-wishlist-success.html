@@ -28,6 +28,11 @@
   <h3>Add Wishlist Success</h3>
   <p th:text="'Wishlist Title: ' + ${wishlist.getWishlist_title()}"/>
 
+
+  <p>Your wishlist has been created successfully!</p>
+
+  <a th:href="@{/wishlist(id=${user_id})}" class="btn btn-primary">View My Wishlist</a>
+
 </div>
 </body>
 </html>

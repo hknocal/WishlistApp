@@ -1,6 +1,5 @@
         package com.example.wishlistapp.controllers;
 
-        import com.example.wishlistapp.models.Item;
         import com.example.wishlistapp.models.Wishlist;
         import com.example.wishlistapp.services.WishlistService;
         import org.springframework.stereotype.Controller;
@@ -14,7 +13,6 @@
 
         @Controller
         public class WishlistController {
-
             private final WishlistService wishlistService;
 
             public WishlistController(WishlistService wishlistService) {
@@ -38,10 +36,25 @@
 
             @PostMapping("/add-wishlist")
             public String saveWishlist(@ModelAttribute Wishlist wishlist, @RequestParam("id") int id, Model model) {
-                wishlist.setWishlist_id(id);
+                wishlist.setId(id);
                 wishlistService.addWishlist(wishlist);
                 model.addAttribute("wishlist", wishlist);
+                model.addAttribute("user_id", id); // Add the user_id to the model
                 return "add-wishlist-success";
+            }
+
+            @GetMapping("/edit-wishlist")
+            public String editWishlist(@RequestParam("id") int id, Model model) {
+                Wishlist wishlist = wishlistService.getWishlistById(id);
+                model.addAttribute("wishlist", wishlist);
+                return "edit-wishlist";
+            }
+
+            @PostMapping("/edit-wishlist")
+            public String saveEditWishlist(@ModelAttribute Wishlist wishlist, Model model) {
+                model.addAttribute("wishlist", wishlist);
+                wishlistService.editWishlist(wishlist);
+                return "edit-wishlist-success";
             }
 
             @GetMapping("/delete-wishlist")

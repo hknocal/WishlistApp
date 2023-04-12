@@ -1,12 +1,12 @@
 package com.example.wishlistapp.models;
 
 public class Wishlist {
-    private int wishlist_id;
+    private int id;
     private String wishlist_title;
     private int user_id;
 
-    public Wishlist(int wishlist_id, String wishlist_title, int user_id) {
-        this.wishlist_id = wishlist_id;
+    public Wishlist(int id, String wishlist_title, int user_id) {
+        this.id = id;
         this.wishlist_title = wishlist_title;
         this.user_id = user_id;
     }
@@ -14,12 +14,12 @@ public class Wishlist {
     public Wishlist() {
     }
 
-    public int getWishlist_id() {
-        return wishlist_id;
+    public int getId() {
+        return id;
     }
 
-    public void setWishlist_id(int wishlist_id) {
-        this.wishlist_id = wishlist_id;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getWishlist_title() {
@@ -41,7 +41,7 @@ public class Wishlist {
     @Override
     public String toString() {
         return "Wishlist{" +
-                "wishlist_id=" + wishlist_id +
+                "wishlist_id=" + id +
                 ", wishlist_title='" + wishlist_title + '\'' +
                 ", user_id=" + user_id +
                 '}';

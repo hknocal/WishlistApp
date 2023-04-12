@@ -8,5 +8,6 @@ import java.util.List;
 public interface IWishlistRepository {
     List<Wishlist> getWishlistByUserID(int id);
     void addWishlist(Wishlist wishlist);
+    void editWishlist(Wishlist wishlist);
     void deleteWishlist(int id);
 }

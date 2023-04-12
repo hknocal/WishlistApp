@@ -18,10 +18,17 @@ public class WishlistService {
         return repository.getWishlistByUserID(id);
     }
 
+    public Wishlist getWishlistById(int id) {
+        return repository.getWishlistById(id);
+    }
+
     public void addWishlist(Wishlist wishlist) {
         repository.addWishlist(wishlist);
     }
 
+    public void editWishlist(Wishlist wishlist) {
+        repository.editWishlist(wishlist);
+    }
     public void deleteWishlist(int id) {
         repository.deleteWishlist(id);
     }
