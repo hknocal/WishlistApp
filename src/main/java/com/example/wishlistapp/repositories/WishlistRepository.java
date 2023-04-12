@@ -29,9 +29,10 @@ public class WishlistRepository implements IWishlistRepository {
             ResultSet rs = pstmt.executeQuery();
 
             while (rs.next()) {
+                int wishlist_id = rs.getInt(1);
                 String wishlist_title = rs.getString(2);
                 int user_id = rs.getInt(3);
-                wishlists.add(new Wishlist(id, wishlist_title, user_id));
+                wishlists.add(new Wishlist(wishlist_id, wishlist_title, user_id));
             }
 
         } catch (SQLException e) {
@@ -47,9 +48,25 @@ public class WishlistRepository implements IWishlistRepository {
             String SQL = "INSERT INTO wishlist (wishlist_title, user_id) VALUES (?,?)";
             PreparedStatement pstmt = con.prepareStatement(SQL);
             pstmt.setString(1, wishlist.getWishlist_title());
-            pstmt.setInt(2, wishlist.getId());
+            pstmt.setInt(2, wishlist.getWishlist_id());
             pstmt.executeUpdate();
 
+        } catch (SQLException e) {
+            throw new RuntimeException();
+        }
+    }
+
+    public void deleteWishlist(int id) {
+        try (Connection con = DriverManager.getConnection(url, username, pwd)) {
+            String SQL = "DELETE FROM item WHERE wishlist_id = ?";
+            PreparedStatement pstmt = con.prepareStatement(SQL);
+            pstmt.setInt(1, id);
+            pstmt.executeUpdate();
+
+            SQL = "DELETE FROM wishlist WHERE id = ?";
+            pstmt = con.prepareStatement(SQL);
+            pstmt.setInt(1, id);
+            pstmt.executeUpdate();
         } catch (SQLException e) {
             throw new RuntimeException();
         }
