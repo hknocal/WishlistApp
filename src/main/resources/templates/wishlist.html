@@ -29,14 +29,12 @@
 
     <table class="table">
         <thead>
-        <th>ID</th>
         <th>Wishlist title</th>
         <th></th>
         </thead>
 
         <tbody>
         <tr th:each="wishlist: ${wishlist}">
-            <td th:text="${wishlist.getId()}"></td>
             <td th:text="${wishlist.getWishlist_title()}"></td>
             <td>
                 <a href="#" class="btn btn-warning">Edit</a>

@@ -23,8 +23,9 @@ public class WishlistController {
 
     @GetMapping("/wishlist")
     public String getWishlistsByID (@RequestParam("id") int id, Model model) {
-        List<Wishlist> wishlists = wishlistService.getWishlistByUserID(id);
-        model.addAttribute("wishlist", wishlists);
+        List<Wishlist> wishlist = wishlistService.getWishlistByUserID(id);
+        model.addAttribute("wishlist", wishlist);
+        model.addAttribute("user_id", id);
         return "wishlist";
     }
 
