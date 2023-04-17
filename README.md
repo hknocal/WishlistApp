@@ -23,16 +23,16 @@ Below there is a few screenshots for visual representation of the application
 #### Create user
 ![create_user](https://github.com/hknocal/WishlistApp/blob/master/src/main/resources/docs/create_user.PNG?raw=true)
 #### Login
-![login](https://raw.githubusercontent.com/hknocal/WishlistApp/master/docs/login.PNG)
+![login](https://github.com/hknocal/WishlistApp/blob/master/src/main/resources/docs/login.PNG?raw=true)
 #### User page
-![user_logon](https://raw.githubusercontent.com/hknocal/WishlistApp/master/docs/user_logon.PNG)
+![user_logon](https://github.com/hknocal/WishlistApp/blob/master/src/main/resources/docs/user_logon.PNG?raw=true)
 #### Wishlist
-![wishlist](https://raw.githubusercontent.com/hknocal/WishlistApp/master/docs/wishlist.PNG)
+![wishlist](https://github.com/hknocal/WishlistApp/blob/master/src/main/resources/docs/wishlist.PNG?raw=true)
 #### Add wishlist
-![add_wishlist](https://raw.githubusercontent.com/hknocal/WishlistApp/master/docs/user_logon.PNG)
+![add_wishlist](https://github.com/hknocal/WishlistApp/blob/master/src/main/resources/docs/add_wishlist.PNG?raw=true)
 #### Items
-![items](https://raw.githubusercontent.com/hknocal/WishlistApp/master/docs/items.PNG)
+![items](https://github.com/hknocal/WishlistApp/blob/master/src/main/resources/docs/items.PNG?raw=true)
 #### Add item
-![add_item](https://raw.githubusercontent.com/hknocal/WishlistApp/master/docs/add_item.PNG)
+![add_item](https://github.com/hknocal/WishlistApp/blob/master/src/main/resources/docs/add_item.PNG?raw=true)
 #### Admin page
-![admin_page](https://raw.githubusercontent.com/hknocal/WishlistApp/master/docs/admin.PNG)
+![admin_page](https://github.com/hknocal/WishlistApp/blob/master/src/main/resources/docs/admin.PNG?raw=true)
