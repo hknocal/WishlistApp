@@ -5,7 +5,7 @@
 
 <details>
 <summary>Create user</summary> 
-![](https://raw.githubusercontent.com/hknocal/WishlistApp/master/docs/create_user.PNG)
+![](docs/create_user.PNG)
 </details>
 
 <details>
