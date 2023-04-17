@@ -1,47 +1,27 @@
-# Welcome to the WishlistApp!
+# Welcome to the Wishlist App!
+
 ## Background
+
 ## Introduction
-## Visuals
-
-<details>
-<summary>Create user</summary> 
-![Create user](https://github.com/hknocal/WishlistApp/blob/68f737789ca0721e3f52138caddcd74e14ca577d/docs/create_user.PNG)
-</details>
-
-<details>
-<summary>Login</summary> 
-![](https://raw.githubusercontent.com/hknocal/WishlistApp/master/docs/user_logon.PNG)
-</details>
-
-<details>
-<summary>User page</summary> 
-![](https://raw.githubusercontent.com/hknocal/WishlistApp/master/docs/user_logon.PNG)
-</details>
-
-<details>
-<summary>Wishlists</summary> 
-![](https://raw.githubusercontent.com/hknocal/WishlistApp/master/docs/wishlist.PNG)
-</details>
-
-<details>
-<summary>Add wishlist</summary> 
-![](https://raw.githubusercontent.com/hknocal/WishlistApp/master/docs/add_wishlist.PNG)
-</details>
 
 
-<details>
-<summary>Items</summary> 
-![](https://raw.githubusercontent.com/hknocal/WishlistApp/master/docs/items.PNG)
-</details>
-
-<details>
-<summary>Add item</summary> 
-![](https://raw.githubusercontent.com/hknocal/WishlistApp/master/docs/add_item.PNG)
-</details>
-
-<details>
-<summary>Admin page</summary> 
-![](https://raw.githubusercontent.com/hknocal/WishlistApp/master/docs/admin.PNG)
-</details>
 
 
+
+## Screenshots
+#### Create user
+![create_user](https://raw.githubusercontent.com/hknocal/WishlistApp/master/docs/create_user.PNG)
+#### Login
+![login](https://raw.githubusercontent.com/hknocal/WishlistApp/master/docs/login.PNG)
+#### User page
+![user_logon](https://raw.githubusercontent.com/hknocal/WishlistApp/master/docs/user_logon.PNG)
+#### Wishlist
+![wishlist](https://raw.githubusercontent.com/hknocal/WishlistApp/master/docs/wishlist.PNG)
+#### Add wishlist
+![add_wishlist](https://raw.githubusercontent.com/hknocal/WishlistApp/master/docs/user_logon.PNG)
+#### Items
+![items](https://raw.githubusercontent.com/hknocal/WishlistApp/master/docs/items.PNG)
+#### Add item
+![add_item](https://raw.githubusercontent.com/hknocal/WishlistApp/master/docs/add_item.PNG)
+#### Admin page
+![admin_page](https://raw.githubusercontent.com/hknocal/WishlistApp/master/docs/admin.PNG)
