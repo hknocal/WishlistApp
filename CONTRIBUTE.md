@@ -13,5 +13,5 @@ In order to contribute to the project follow these steps
 - Run the SQL script from the sql folder found in the repository
 - Run the project, usually on a tomcat server on port:8080 and you should be going!
 
-## Running the project from a Docker contain
+## Running the project from a Docker container
 - TBD
