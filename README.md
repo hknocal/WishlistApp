@@ -21,7 +21,7 @@ The project is built around the following tech stack:
 ## Screenshots
 Below there is a few screenshots for visual representation of the application
 #### Create user
-![create_user](https://raw.githubusercontent.com/hknocal/WishlistApp/master/docs/create_user.PNG)
+![create_user](https://github.com/hknocal/WishlistApp/blob/master/src/main/resources/docs/create_user.PNG?raw=true)
 #### Login
 ![login](https://raw.githubusercontent.com/hknocal/WishlistApp/master/docs/login.PNG)
 #### User page
