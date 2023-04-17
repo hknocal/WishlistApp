@@ -11,7 +11,7 @@ The wishlist application was made as part of a preliminary project up to a final
 
 The application is working, but was developed primarily for small scale usage and therefore the admin layer is not yet protected.
 
-## Introduction & tech stack
+## Tech stack
 The project is built around the following tech stack:
 - Java
 - Spring Boot
