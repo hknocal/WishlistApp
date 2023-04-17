@@ -11,6 +11,8 @@ The wishlist application was made as part of a preliminary project up to a final
 
 The application is working, but was developed primarily for small scale usage and therefore the admin layer is not yet protected.
 
+IMPORTANT! All the documentation is inside the resources folder of the project. Here is a direct link: https://github.com/hknocal/WishlistApp/tree/master/src/main/resources
+
 ## Tech stack
 The project is built around the following tech stack:
 - Java
